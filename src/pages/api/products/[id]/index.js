@@ -43,6 +43,7 @@ export async function GET(request, { params }) {
 /**
  * PUT: Update product (Admin only)
  */
+
 export async function PUT(request, { params }) {
   const adminCheck = await verifyAdmin(request);
   if (adminCheck.error) return adminCheck.error;
