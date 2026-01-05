@@ -1,6 +1,6 @@
 // app/api/products/[id]/route.js
-import dbConnect from "@/lib/dbConnect";
 import Product from "@/models/Product";
+import { dbConnect } from "@/lib/dbConnect";
 import { verifyAdmin } from "@/lib/adminAuth";
 
 await dbConnect();
