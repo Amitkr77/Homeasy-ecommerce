@@ -8,19 +8,13 @@ import {
   Mail,
   Settings2,
   Speaker,
-  Star,
   Thermometer,
   Zap,
-  HouseWifi,
   CirclePlay,
-  Globe,
-  Share2,
-  Facebook,
   Leaf,
   Sun,
   Lock,
 } from "lucide-react";
-import Header from "@/components/Header";
 import { motion } from "framer-motion";
 
 const products = [
@@ -53,15 +47,13 @@ const products = [
 export default function page() {
   return (
     <section className="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display antialiased transition-colors duration-200">
-
-
       <main className="grow">
         {/* Hero Section */}
         <section className="relative px-4 py-8 md:px-10 md:py-12 lg:px-40 flex justify-center overflow-hidden">
           <div className="w-full max-w-7xl">
             <div className="@container">
               <div
-                className="flex min-h-[560px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-2xl md:rounded-3xl items-center justify-center p-8 text-center relative overflow-hidden group"
+                className="flex min-h-140 flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-2xl md:rounded-3xl items-center justify-center p-8 text-center relative overflow-hidden group "
                 data-alt="Modern living room with smart lights turned on in blue and purple hues"
                 style={{
                   backgroundImage:
@@ -97,7 +89,7 @@ export default function page() {
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                   >
                     Your Home,{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-purple-300 animate-gradient-flow">
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-cyan-400 to-purple-300 animate-linear-flow">
                       Reimagined.
                     </span>
                   </motion.h1>
@@ -182,7 +174,7 @@ export default function page() {
           className="px-4 pt-10 md:px-10 lg:px-40 flex justify-center"
           id="products"
         >
-          <div className="w-full max-w-[1280px] flex flex-col md:flex-row justify-between items-end gap-4 border-b border-gray-200 dark:border-[#243b47] pb-6">
+          <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-end gap-4 border-b border-gray-200 dark:border-[#243b47] pb-6">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-text-light dark:text-white mb-2">
                 Explore Our Products
@@ -203,11 +195,11 @@ export default function page() {
 
         {/* Product Grid */}
         <section className="px-4 py-8 md:px-10 lg:px-40 flex justify-center">
-          <div className="w-full max-w-[1280px]">
+          <div className="w-full max-w-7xl">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {/* Card 1 */}
               <div className="group cursor-pointer flex flex-col gap-3">
-                <div className="overflow-hidden rounded-2xl relative aspect-[4/5] shadow-sm">
+                <div className="overflow-hidden rounded-2xl relative aspect-4/5 shadow-sm">
                   <div
                     className="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110"
                     data-alt="Smart bulb changing colors in a modern lamp"
@@ -216,7 +208,7 @@ export default function page() {
                         'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDl7ejN1SPHwkKjg24Fm_5rHVbJrWrGUao9qkD1NgjHJCNG7EyTuWURU_QgS_m29nxSHRjWD1atFwdcoz5puboc1Yhdtg5jn9DGtnLFySiFY97qv6MvphdQbm0qZCt22SqZxKEcdqy0vh0GCdvnDhLJtHtCMFO9eKI9QaWTI0x9vvE-8Q5MDa4sMjmDeLquoYxonX3HoUWz6pJ4s0YrTiM_ZaOLk_VxTV6wXF7YDQux6ZNAWFV3HWA1V0hP-FMJlB4pQMBfXto_B5Qx")',
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <Lightbulb className="material-symbols-outlined text-3xl mb-1" />
                   </div>
@@ -233,7 +225,7 @@ export default function page() {
 
               {/* Card 2 */}
               <div className="group cursor-pointer flex flex-col gap-3">
-                <div className="overflow-hidden rounded-2xl relative aspect-[4/5] shadow-sm">
+                <div className="overflow-hidden rounded-2xl relative aspect-4/5 shadow-sm">
                   <div
                     className="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110"
                     data-alt="Modern smart security camera mounted on a wall"
@@ -242,7 +234,7 @@ export default function page() {
                         'url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEU0Hu5bFVZAG7_Kc3fjqePENcyqBovD1rFHzw4yMJX1PbryiATI4zFvVp82TItWmKBEePT2QyQ3RKPk0Ymrs_2XqEdYXGF-bcbec_HdRpcrYNaZALevC_rhxz5Rg9REZGGhUiaTEZq4x87xykXDfG7buGdr9trIqvYLeqM1G8I7NIpLQTVcFgRMTkXuvzbBhI1TynZFHKZWe3ua1pW2x4xsxVygwguNWqRbA4JkUJwEnyTJmARE9t9ldCK3-WLft141nWVvi_z11O")',
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <Cctv className="material-symbols-outlined text-3xl mb-1" />
                   </div>
@@ -259,7 +251,7 @@ export default function page() {
 
               {/* Card 3 */}
               <div className="group cursor-pointer flex flex-col gap-3">
-                <div className="overflow-hidden rounded-2xl relative aspect-[4/5] shadow-sm">
+                <div className="overflow-hidden rounded-2xl relative aspect-4/5 shadow-sm">
                   <div
                     className="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110"
                     data-alt="Digital thermostat displaying temperature"
@@ -268,7 +260,7 @@ export default function page() {
                         'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCIxhQhTj90CKipl4KRY3oWUv4EiTfvzXAkkQpEE7pH_4tOwQgDhvJAhHWs4NP94tzU57FHSCTOFV8xLO2LpGdB5pTfBbok7krKJcStX6Px7toG-iOo6x1xjtR47uClXANyFHq9wb5rXR36nC3sjW6nvTmTSGJ0RXLM1Y0Mc7eUXHVZ0cL_OXMcHF5GDfvoUQP9EPJL66SzxEYPGJ4Cs5VFexTJuotXVvuyTZ-MCYIvMJ-RMFwfAuEA33g0dm81x1WDbTzgBM9ePPkL")',
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <Thermometer className="material-symbols-outlined text-3xl mb-1" />
                   </div>
@@ -285,7 +277,7 @@ export default function page() {
 
               {/* Card 4 */}
               <div className="group cursor-pointer flex flex-col gap-3">
-                <div className="overflow-hidden rounded-2xl relative aspect-[4/5] shadow-sm">
+                <div className="overflow-hidden rounded-2xl relative aspect-4/5 shadow-sm">
                   <div
                     className="w-full h-full bg-center bg-no-repeat bg-cover transition-transform duration-500 group-hover:scale-110"
                     data-alt="Smart speaker on a wooden table"
@@ -294,7 +286,7 @@ export default function page() {
                         'url("https://lh3.googleusercontent.com/aida-public/AB6AXuCk2GFHHA7iMwEO0cn_3HQ_Wb3JKcfk_q_LtiSIpRFEhtQxb6s8rc-Mso3IyFAS1kPPSgak9oOsAWJkBcrqdJVbQj7qOSoqL-wMZDnEkQYCaVGsNYKJaoTyslR5dl_Ke3AhtBOY9qu0DzAXrNpsIoU4HE2Zub5l3N6dKqKI0lUpZfUf8ihVx8HIWK6WwaZ97887V0flM5jugqiR7Z9BtHxXJH4vN0dfjVsy43xwn65ilHMnx8FHodseqKsQHIEUlATp_YtXdAyX6jxt")',
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-60"></div>
                   <div className="absolute bottom-4 left-4 text-white">
                     <Speaker className="material-symbols-outlined text-3xl mb-1" />
                   </div>
@@ -317,7 +309,7 @@ export default function page() {
           className="px-4 py-16 md:px-10 lg:px-40 flex justify-center bg-white dark:bg-[#162127]"
           id="features"
         >
-          <div className="w-full max-w-[1280px] grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="w-full max-w-7xl grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="flex flex-col gap-8">
               <div>
                 <span className="text-primary font-bold text-sm tracking-widest uppercase mb-2 block">
@@ -414,7 +406,7 @@ export default function page() {
                 </div>
               </div>
 
-              <div className="absolute -top-10 -right-10 w-2/3 h-2/3 bg-gradient-to-br from-primary to-cyan-400 rounded-full blur-[100px] opacity-20 z-0"></div>
+              <div className="absolute -top-10 -right-10 w-2/3 h-2/3 bg-linear-to-br from-primary to-cyan-400 rounded-full blur-[100px] opacity-20 z-0"></div>
             </div>
           </div>
         </section>
@@ -447,7 +439,7 @@ export default function page() {
         </section>
 
         <div className=" bg-white py-16">
-          <div className="max-w-7xl mx-auto relative rounded-xl bg-slate-800 shadow-2xl overflow-hidden aspect-[16/9] md:aspect-[21/9] group border border-white/5">
+          <div className="max-w-7xl mx-auto relative rounded-xl bg-slate-800 shadow-2xl overflow-hidden aspect-video md:aspect-21/9 group border border-white/5">
             <img
               alt="App screenshot"
               className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700 ease-out"
@@ -455,7 +447,7 @@ export default function page() {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVQnvC5NqPv-eGeymAS0ASNcGSW6UDs20GQKGaYTB73F8NFqIkBdSK7yblvUCa7XpYj8BT-FOegZ8d1OpNB2-qOK-XuXHGIUiB9S2rOAstgI-lvrR-cZYnnqOjSyFFaqbIiTapgtGAQ6_q66X-DlK0KAMJxwApnP_gUjl7MbbdTL-Ul8-bUxdZcyvbWAfKykBRD156IEaLtAdMSaVsrkMnEE83HAdAIV6daav1mZnecwzmy-hMVAtNnv4hkx1g0ferBDbp2hgeIn0F"
               width="2432"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-t from-background-dark via-background-dark/20 to-transparent"></div>
             <div className="absolute top-8 left-8 hidden md:block animate-float-slow">
               <div className="glass-panel p-4 rounded-2xl flex items-center gap-4">
                 <div className="h-10 w-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
@@ -502,7 +494,7 @@ export default function page() {
                 </div>
               </div>
               <div className="hidden md:flex gap-4">
-                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-[110px] hover:bg-white/10 transition-colors cursor-pointer group/card">
+                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-27.5 hover:bg-white/10 transition-colors cursor-pointer group/card">
                   <Lock className=" text-white mb-2 " />
 
                   <span className="text-white text-xs font-medium">
@@ -512,7 +504,7 @@ export default function page() {
                     Locked
                   </span>
                 </div>
-                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-[110px] hover:bg-white/10 transition-colors cursor-pointer group/card">
+                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-27.5 hover:bg-white/10 transition-colors cursor-pointer group/card">
                   <Thermometer className=" text-white mb-2 " />
 
                   <span className="text-white text-xs font-medium">
@@ -520,7 +512,7 @@ export default function page() {
                   </span>
                   <span className="text-orange-400 text-[10px] mt-1">72°F</span>
                 </div>
-                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-[110px] hover:bg-white/10 transition-colors cursor-pointer group/card">
+                <div className="glass-panel p-4 rounded-2xl flex flex-col items-center min-w-27.5 hover:bg-white/10 transition-colors cursor-pointer group/card">
                   <Lightbulb className=" text-white mb-2" />
 
                   <span className="text-white text-xs font-medium">
@@ -540,7 +532,7 @@ export default function page() {
           className="px-4 py-24 md:px-10 lg:px-40 flex justify-center bg-background-light dark:bg-background-dark"
           id="testimonials"
         >
-          <div className="w-full max-w-[1400px]">
+          <div className="w-full max-w-350">
             {/* Refined header with subtle emphasis */}
             <div className="text-center mb-20">
               <h2 className="text-4xl md:text-5xl font-bold text-text-light dark:text-white">
@@ -555,7 +547,7 @@ export default function page() {
             {/* Clean, spacious grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
               {/* Testimonial 1 */}
-              <div className="bg-white dark:bg-[#1e282d] rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
+              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
                 <div className="flex text-yellow-500 mb-6">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -568,7 +560,7 @@ export default function page() {
                   ))}
                 </div>
 
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 flex-grow">
+                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
                   “Setting up the system was incredibly simple. I had my lights,
                   thermostat, and locks connected in under 20 minutes. The app
                   is intuitive and beautiful!”
@@ -576,7 +568,7 @@ export default function page() {
 
                 <div className="flex items-center gap-5 mt-10">
                   <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-[#1e282d] shadow-md"
+                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
                     style={{
                       backgroundImage:
                         'url("https://www.shutterstock.com/image-photo/happy-young-smiling-confident-professional-260nw-2286784643.jpg")',
@@ -594,7 +586,7 @@ export default function page() {
               </div>
 
               {/* Testimonial 2 */}
-              <div className="bg-white dark:bg-[#1e282d] rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
+              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
                 <div className="flex text-yellow-500 mb-6">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -607,7 +599,7 @@ export default function page() {
                   ))}
                 </div>
 
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 flex-grow">
+                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
                   “The 'Away Mode' gives me real peace of mind when traveling.
                   Checking cameras and controlling everything from my phone
                   anywhere in the world is a game-changer.”
@@ -615,7 +607,7 @@ export default function page() {
 
                 <div className="flex items-center gap-5 mt-10">
                   <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-[#1e282d] shadow-md"
+                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
                     style={{
                       backgroundImage:
                         'url("https://media.istockphoto.com/id/1316302354/photo/smiling-man-outdoors-in-the-city.jpg?s=612x612&w=0&k=20&c=FTUr2Eb2Eas9Dh2EhNIRnn3YP7Qp9CfE9hGcax6XzRM=") ',
@@ -633,7 +625,7 @@ export default function page() {
               </div>
 
               {/* Testimonial 3 */}
-              <div className="bg-white dark:bg-[#1e282d] rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
+              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
                 <div className="flex text-yellow-500 mb-6">
                   {[...Array(5)].map((_, i) => (
                     <svg
@@ -646,7 +638,7 @@ export default function page() {
                   ))}
                 </div>
 
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 flex-grow">
+                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
                   “Excellent customer support and premium-quality hardware. It
                   feels high-end, yet the pricing is very reasonable for
                   everything you get.”
@@ -654,7 +646,7 @@ export default function page() {
 
                 <div className="flex items-center gap-5 mt-10">
                   <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-[#1e282d] shadow-md"
+                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
                     style={{
                       backgroundImage:
                         "url(https://www.shutterstock.com/image-photo/portrait-smiling-young-multiethnic-woman-260nw-2318383273.jpg)",
@@ -677,7 +669,7 @@ export default function page() {
         <section className="px-4 py-16 md:px-10 lg:px-40 flex justify-center border-t border-gray-200 bg-white dark:border-[#243b47]">
           <div className="w-full max-w-7xl bg-background-dark rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden">
             {/* Minimal decorative background – very subtle */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent"></div>
+            <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent"></div>
             <div className="absolute top-0 left-0 w-80 h-80 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
             <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/8 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
 
@@ -723,8 +715,6 @@ export default function page() {
           </div>
         </section>
       </main>
-
-
     </section>
   );
 }
