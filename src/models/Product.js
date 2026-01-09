@@ -243,14 +243,14 @@ productSchema.index({ category: 1 });
 productSchema.index({ tags: 1 });
 productSchema.index({ status: 1 });
 
-// Pre-save middleware example (e.g., generate SKU if not provided)
-productSchema.pre('save', function (next) {
-  if (!this.sku) {
-    this.sku = 'SKU-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-  }
-  next();
-});
-
+// productSchema.pre('save', function (next) {
+//   // Only generate if SKU is empty and this is a new document
+//   if (this.isNew && !this.sku) {
+//     this.sku = 'PROD-' + Date.now().toString(36).toUpperCase() +
+//                Math.random().toString(36).substr(2, 6).toUpperCase();
+//   }
+//   next();
+// });
 const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 
 module.exports = Product;
