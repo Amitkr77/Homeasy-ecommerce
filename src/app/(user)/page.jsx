@@ -16,33 +16,7 @@ import {
   Lock,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
-const products = [
-  {
-    icon: "lightbulb",
-    title: "Smart Lighting",
-    desc: "Set the mood instantly",
-    img: "lighting",
-  },
-  {
-    icon: "videocam",
-    title: "Security",
-    desc: "Protect what matters",
-    img: "security",
-  },
-  {
-    icon: "thermostat",
-    title: "Climate Control",
-    desc: "Perfect temperature",
-    img: "climate",
-  },
-  {
-    icon: "speaker",
-    title: "Entertainment",
-    desc: "Immersive sound",
-    img: "entertainment",
-  },
-];
+import Cta from "@/components/Cta";
 
 export default function page() {
   return (
@@ -528,192 +502,95 @@ export default function page() {
         </div>
 
         {/* Testimonials – Elevated Minimal Design */}
-        <section
-          className="px-4 py-24 md:px-10 lg:px-40 flex justify-center bg-background-light dark:bg-background-dark"
-          id="testimonials"
-        >
-          <div className="w-full max-w-350">
-            {/* Refined header with subtle emphasis */}
-            <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl font-bold text-text-light dark:text-white">
-                Real Stories from Real Homes
+
+        <main className="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 transition-colors duration-300">
+          <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
+            <div className="mb-16 lg:mb-24">
+              <h2 className="serif-heading text-5xl lg:text-6xl font-semibold mb-6 text-slate-900 dark:text-white">
+                Why choose us?
               </h2>
-              <p className="mt-4 text-lg text-text-muted-light dark:text-text-muted-dark max-w-2xl mx-auto">
-                Thousands of homeowners trust us to make their lives easier,
-                safer, and more connected.
+              <p className="text-lg lg:text-xl text-slate-500 dark:text-slate-400 max-w-2xl font-light">
+                Everyday we work hard to make life of our clients better and
+                happier
               </p>
             </div>
-
-            {/* Clean, spacious grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
-              {/* Testimonial 1 */}
-              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
-                <div className="flex text-yellow-500 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-5 h-5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
-                  “Setting up the system was incredibly simple. I had my lights,
-                  thermostat, and locks connected in under 20 minutes. The app
-                  is intuitive and beautiful!”
-                </blockquote>
-
-                <div className="flex items-center gap-5 mt-10">
-                  <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
-                    style={{
-                      backgroundImage:
-                        'url("https://www.shutterstock.com/image-photo/happy-young-smiling-confident-professional-260nw-2286784643.jpg")',
-                    }}
-                  />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+              <div className="space-y-16 lg:space-y-20">
+                <div className="flex gap-6 items-start group">
+                  <div className="quote-mark text-primary -mt-4">“</div>
                   <div>
-                    <p className="font-semibold text-text-light dark:text-white">
-                      Sarah Jenkins
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-lg">
+                      Emergency response time is one hour or less guaranteed. A
+                      live person will answer your call, or you can enter a
+                      service ticket yourself.
                     </p>
-                    <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
-                      Homeowner
+                    <h4 className="font-bold tracking-widest uppercase text-sm text-slate-900 dark:text-white">
+                      Nina Larson
+                    </h4>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start group">
+                  <div className="quote-mark text-primary -mt-4">“</div>
+                  <div>
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-lg">
+                      We take support one step further by tailoring our replies
+                      to suit your knowledge, expectations and personality.
                     </p>
+                    <h4 className="font-bold tracking-widest uppercase text-sm text-slate-900 dark:text-white">
+                      Mike Perry
+                    </h4>
+                  </div>
+                </div>
+                <div className="flex gap-6 items-start group">
+                  <div className="quote-mark text-primary -mt-4">“</div>
+                  <div>
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-lg">
+                      We begin each web development project by gaining a solid
+                      understanding of who you are, what you do and why you do
+                      it.
+                    </p>
+                    <h4 className="font-bold tracking-widest uppercase text-sm text-slate-900 dark:text-white">
+                      Lana Hudson
+                    </h4>
+                  </div>
+                </div>
+                 <div className="flex gap-6 items-start group">
+                  <div className="quote-mark text-primary -mt-4">“</div>
+                  <div>
+                    <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-lg">
+                      We begin each web development project by gaining a solid
+                      understanding of who you are, what you do and why you do
+                      it.
+                    </p>
+                    <h4 className="font-bold tracking-widest uppercase text-sm text-slate-900 dark:text-white">
+                      Lana Hudson
+                    </h4>
                   </div>
                 </div>
               </div>
-
-              {/* Testimonial 2 */}
-              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
-                <div className="flex text-yellow-500 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-5 h-5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
-                  “The 'Away Mode' gives me real peace of mind when traveling.
-                  Checking cameras and controlling everything from my phone
-                  anywhere in the world is a game-changer.”
-                </blockquote>
-
-                <div className="flex items-center gap-5 mt-10">
-                  <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
-                    style={{
-                      backgroundImage:
-                        'url("https://media.istockphoto.com/id/1316302354/photo/smiling-man-outdoors-in-the-city.jpg?s=612x612&w=0&k=20&c=FTUr2Eb2Eas9Dh2EhNIRnn3YP7Qp9CfE9hGcax6XzRM=") ',
-                    }}
+              <div className="relative group">
+                <div className="overflow-hidden rounded-lg shadow-2xl transition-transform duration-500 hover:scale-[1.01]">
+                  <img
+                    alt="Interior design with teal wall and circular wire art"
+                    className="w-full h-auto object-cover aspect-4/5 lg:aspect-3/4"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG3DkmPWrDJDKGpz6MSTlRU1eGfY6E0x9-3OQoIu2z8S054sXD6qy4PFZI4PYQb_uFxQ63s6fCze2Tx2xW0S2KVI6ZULmxqyjkc5of3eBdo6DA7_94y4RO7dwlI18O5yRuKGDoJG634kaoqyJkMXxn9EvHm8fOQXUXybcUamTernrtDGB4I8MTCGYNJQgKa1F3JmWXBpNYQ255ekU7XR4yvvORgRketmO476GR-yt09B1Jv4KVpCuyFAei6YS-5u1Oz2uJrZV9CxBc"
                   />
-                  <div>
-                    <p className="font-semibold text-text-light dark:text-white">
-                      Michael Chen
-                    </p>
-                    <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
-                      Tech Enthusiast
-                    </p>
-                  </div>
+                  <div className="absolute inset-0 bg-primary/5 mix-blend-multiply pointer-events-none"></div>
                 </div>
-              </div>
-
-              {/* Testimonial 3 */}
-              <div className="bg-white dark:bg-surface-dark rounded-3xl p-10 lg:p-12 border border-gray-100 dark:border-[#2a3b45] flex flex-col">
-                <div className="flex text-yellow-500 mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="w-5 h-5 fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </svg>
-                  ))}
-                </div>
-
-                <blockquote className="text-lg lg:text-xl leading-relaxed text-text-light dark:text-gray-100 grow">
-                  “Excellent customer support and premium-quality hardware. It
-                  feels high-end, yet the pricing is very reasonable for
-                  everything you get.”
-                </blockquote>
-
-                <div className="flex items-center gap-5 mt-10">
-                  <div
-                    className="w-16 h-16 rounded-full bg-cover bg-center ring-4 ring-white dark:ring-surface-dark shadow-md"
-                    style={{
-                      backgroundImage:
-                        "url(https://www.shutterstock.com/image-photo/portrait-smiling-young-multiethnic-woman-260nw-2318383273.jpg)",
-                    }}
-                  />
-                  <div>
-                    <p className="font-semibold text-text-light dark:text-white">
-                      Elena Rodriguez
-                    </p>
-                    <p className="text-sm text-text-muted-light dark:text-text-muted-dark">
-                      Interior Designer
-                    </p>
-                  </div>
+                <div className="absolute -bottom-8 -left-8 bg-white dark:bg-accent-dark p-6 shadow-xl rounded-lg hidden xl:block max-w-50">
+                  <p className="text-xs font-semibold uppercase tracking-tighter text-primary mb-2">
+                    Our commitment
+                  </p>
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-200">
+                    Delivering excellence since 2014
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
 
-        <section className="px-4 py-16 md:px-10 lg:px-40 flex justify-center border-t border-gray-200 bg-white dark:border-[#243b47]">
-          <div className="w-full max-w-7xl bg-background-dark rounded-3xl p-10 md:p-16 text-center text-white relative overflow-hidden">
-            {/* Minimal decorative background – very subtle */}
-            <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent"></div>
-            <div className="absolute top-0 left-0 w-80 h-80 bg-white/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div>
-            <div className="absolute bottom-0 right-0 w-80 h-80 bg-white/8 rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div>
-
-            <div className="relative z-10 flex flex-col items-center gap-8">
-              {/* Clean, larger icon without extra effects */}
-              <div className="size-16 bg-white/15 rounded-full flex items-center justify-center backdrop-blur-sm">
-                <Mail className="size-8" />
-              </div>
-
-              {/* Minimal, benefit-focused headline */}
-              <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-                Stay Connected
-              </h2>
-
-              {/* Short, clear description */}
-              <p className="max-w-xl text-lg leading-relaxed opacity-90">
-                Get the latest smart home tips, product updates, and exclusive
-                offers delivered to your inbox.
-              </p>
-
-              {/* Clean form – larger, more spacious */}
-              <form className="flex w-full max-w-md flex-col sm:flex-row gap-4">
-                <input
-                  className="flex-1 h-14 rounded-xl bg-white/10 px-6 text-white placeholder:text-white/50 focus:bg-white/20 focus:ring-2 focus:ring-white/40 transition-all outline-none backdrop-blur-sm"
-                  placeholder="Your email address"
-                  required
-                  type="email"
-                  aria-label="Email address"
-                />
-                <button
-                  className="h-14 px-8 rounded-xl bg-white text-primary font-semibold hover:bg-gray-50 transition-colors"
-                  type="submit"
-                >
-                  Subscribe
-                </button>
-              </form>
-
-              {/* Newsletter */}
-              <p className="text-sm opacity-60">
-                No spam • Unsubscribe anytime
-              </p>
-            </div>
-          </div>
-        </section>
+        <Cta />
       </main>
     </section>
   );

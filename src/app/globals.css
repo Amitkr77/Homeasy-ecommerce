@@ -2,82 +2,23 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Hero Animations */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s ease-out forwards;
-}
-
-@keyframes gradient-flow {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.animate-gradient-flow {
-  background-size: 200% 200%;
-  animation: gradient-flow 3s ease infinite;
-}
 
 /* Custom Delays */
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
 .delay-300 {
   animation-delay: 0.3s;
 }
 
-.delay-500 {
-  animation-delay: 0.5s;
-}
+ .serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
 
-/* Optional: Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
+        .quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
+            line-height: 1;
+            opacity: 0.4;
+        }
 
-  .animate-fade-in-up,
-  .animate-slide-in-right,
-  .animate-gradient-flow {
-    animation: none;
-  }
-}
 
 html {
   scroll-behavior: smooth;
@@ -95,19 +36,28 @@ html {
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-full: 9999px;
+  
 
   /* Colors (kept your original Homeasy palette + a few improvements) */
-  /* --color-primary: #19a1e6; */
-  --color-primary: #00FFC2;
+  --color-primary: #19a1e6;
 
   --color-background-light: #f6f7f8;
   --color-background-dark: #111c21;
+
+  --color-card-light: #ffffff;
+  --color-card-dark: #1a262d;
 
   --color-surface-light: #ffffff;
   --color-surface-dark: #1e282d;
 
   --color-text-light: #111c22;
   --color-text-dark: #ffffff;
+
+  --color-border-light: #d0dfe7;
+  --color-border-dark: #2a3b45;
+
+  --color-text-main-light: #0e171b;
+  --color-text-main-dark: #e7eff3;
 
   --color-text-muted-light: #64748b;
   --color-text-muted-dark: #93b6c8;
@@ -117,29 +67,13 @@ html {
   --color-text-gradient-end: #67e8f9;
 }
 
-.text-gradient {
-  background: linear-gradient(45deg, #f3a2fc, #3b82f6);
-  /* background: #111c21; */
 
-  /* Gradient colors */
-  background-clip: text;
-  color: transparent;
-}
-
-/* Custom clip-path for diagonal background */
-.clip-path-polygon-diagonal {
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-.clip-path-polygon-diagonal-right {
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-}
 
 
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+/* @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -175,9 +109,9 @@ html {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-}
+} */
 
-:root {
+/* :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -244,9 +178,9 @@ html {
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-}
+} */
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border outline-ring/50;
   }
@@ -254,4 +188,4 @@ html {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */

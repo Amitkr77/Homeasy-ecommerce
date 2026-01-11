@@ -16,7 +16,7 @@ export default function page() {
       <main className="flex flex-col w-full">
         {/* <!-- Hero Section --> */}
         <section className="relative w-full py-16 md:py-24 px-6">
-          <div className="max-w-[960px] mx-auto">
+          <div className="max-w-240 mx-auto">
             <div className="flex flex-col md:flex-row gap-10 items-center">
               <div className="flex-1 flex flex-col gap-6 text-left">
                 <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight text-text-main-light dark:text-text-main-dark">
