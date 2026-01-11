@@ -6,9 +6,9 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-[#111c22] border-t border-gray-200 dark:border-[#243b47] px-4 py-12 md:px-10 lg:px-40 flex justify-center">
       <div className="w-full max-w-7xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Logo + Description */}
-          <div className="col-span-2 md:col-span-1 flex flex-col gap-4">
+          <div className="col-span-3 md:col-span-2 flex flex-col gap-4 place-items-center md:place-items-start">
             <div className="flex items-center gap-2 text-text-light dark:text-white">
               <div className="size-8 text-primary flex items-center justify-center">
                 <HouseWifi className="material-symbols-outlined text-3xl" />
