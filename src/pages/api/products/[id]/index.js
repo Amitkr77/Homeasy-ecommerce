@@ -1,125 +1,87 @@
-// app/api/products/[id]/route.js
+// pages/api/products/[id].js (Pages Router style)
 import Product from "@/models/Product";
 import { dbConnect } from "@/lib/dbConnect";
-import  verifyAdmin  from "@/lib/adminAuth";
+import verifyAdmin from "@/lib/adminAuth";
 
-await dbConnect();
+export default async function handler(req, res) {
+  await dbConnect();
+  const { id } = req.query;
 
-/**
- * GET: Fetch single product by ID (Public)
- */
-export async function GET(request, { params }) {
-  try {
-    const { id } = params;
-
-    if (!id.match(/^[0-9a-fA-F]{24}$/)) {
-      return new Response(
-        JSON.stringify({ success: false, error: "Invalid product ID" }),
-        { status: 400 }
-      );
-    }
-
-    const product = await Product.findById(id).select("-__v").lean();
-
-    if (!product) {
-      return new Response(
-        JSON.stringify({ success: false, message: "Product not found" }),
-        { status: 404 }
-      );
-    }
-
-    return new Response(JSON.stringify({ success: true, data: product }), {
-      status: 200,
-    });
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: "Failed to fetch product" }),
-      { status: 500 }
-    );
+  // Validate ID
+  if (!id.match(/^[0-9a-fA-F]{24}$/)) {
+    return res.status(400).json({ success: false, error: "Invalid product ID" });
   }
-}
 
-/**
- * PUT: Update product (Admin only)
- */
+  if (req.method === "GET") {
+    try {
+      const product = await Product.findById(id).select("-__v").lean();
 
-export async function PUT(request, { params }) {
-  const adminCheck = await verifyAdmin(request);
-  if (adminCheck.error) return adminCheck.error;
+      if (!product) {
+        return res.status(404).json({ success: false, message: "Product not found" });
+      }
 
-  try {
-    const { id } = params;
-    const body = await request.json();
-
-    const updatedProduct = await Product.findByIdAndUpdate(id, body, {
-      new: true,
-      runValidators: true,
-    }).select("-__v");
-
-    if (!updatedProduct) {
-      return new Response(
-        JSON.stringify({ success: false, message: "Product not found" }),
-        { status: 404 }
-      );
+      return res.status(200).json({ success: true, data: product });
+    } catch (error) {
+      console.error("Error fetching product:", error);
+      return res.status(500).json({ success: false, error: "Failed to fetch product" });
     }
-
-    return new Response(
-      JSON.stringify({ success: true, data: updatedProduct }),
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error updating product:", error);
-
-    if (error.name === "ValidationError") {
-      const errors = Object.values(error.errors).map((e) => e.message);
-      return new Response(JSON.stringify({ success: false, error: errors.join(", ") }), {
-        status: 400,
-      });
-    }
-
-    if (error.code === 11000) {
-      return new Response(
-        JSON.stringify({ success: false, error: "Duplicate SKU or URL handle" }),
-        { status: 409 }
-      );
-    }
-
-    return new Response(
-      JSON.stringify({ success: false, error: "Failed to update product" }),
-      { status: 500 }
-    );
   }
-}
 
-/**
- * DELETE: Delete product (Admin only)
- */
-export async function DELETE(request, { params }) {
-  const adminCheck = await verifyAdmin(request);
-  if (adminCheck.error) return adminCheck.error;
-
-  try {
-    const { id } = params;
-
-    const deletedProduct = await Product.findByIdAndDelete(id);
-
-    if (!deletedProduct) {
-      return new Response(
-        JSON.stringify({ success: false, message: "Product not found" }),
-        { status: 404 }
-      );
+  if (req.method === "PUT") {
+    const adminCheck = await verifyAdmin(req);
+    if (adminCheck.error) {
+      return res.status(adminCheck.status || 401).json(adminCheck);
     }
 
-    return new Response(
-      JSON.stringify({ success: true, message: "Product deleted successfully" }),
-      { status: 200 }
-    );
-  } catch (error) {
-    console.error("Error deleting product:", error);
-    return new Response(
-      JSON.stringify({ success: false, error: "Failed to delete product" }),
-      { status: 500 }
-    );
+    try {
+      const body = req.body;
+
+      const updatedProduct = await Product.findByIdAndUpdate(
+        id,
+        body,
+        { new: true, runValidators: true }
+      ).select("-__v");
+
+      if (!updatedProduct) {
+        return res.status(404).json({ success: false, message: "Product not found" });
+      }
+
+      return res.status(200).json({ success: true, data: updatedProduct });
+    } catch (error) {
+      console.error("Error updating product:", error);
+
+      if (error.name === "ValidationError") {
+        const errors = Object.values(error.errors).map((e) => e.message);
+        return res.status(400).json({ success: false, error: errors.join(", ") });
+      }
+
+      if (error.code === 11000) {
+        return res.status(409).json({ success: false, error: "Duplicate SKU or URL handle" });
+      }
+
+      return res.status(500).json({ success: false, error: "Failed to update product" });
+    }
   }
+
+  if (req.method === "DELETE") {
+    const adminCheck = await verifyAdmin(req);
+    if (adminCheck.error) {
+      return res.status(adminCheck.status || 401).json(adminCheck);
+    }
+
+    try {
+      const deletedProduct = await Product.findByIdAndDelete(id);
+
+      if (!deletedProduct) {
+        return res.status(404).json({ success: false, message: "Product not found" });
+      }
+
+      return res.status(200).json({ success: true, message: "Product deleted successfully" });
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      return res.status(500).json({ success: false, error: "Failed to delete product" });
+    }
+  }
+
+  return res.status(405).json({ success: false, message: "Method not allowed" });
 }

@@ -14,6 +14,7 @@ import {
   Leaf,
   Sun,
   Lock,
+  ChevronRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Cta from "@/components/Cta";
@@ -47,7 +48,7 @@ export default function page() {
                 <div className="relative z-10 flex flex-col gap-6 max-w-3xl mx-auto">
                   {/* Animated Badge with Entrance Delay */}
                   <motion.span
-                    className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-bold uppercase tracking-wider w-fit mx-auto"
+                    className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm   text-white text-xs font-bold uppercase tracking-wider w-fit mx-auto "
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
@@ -77,8 +78,6 @@ export default function page() {
                   >
                     Experience intelligent living made simple. Control lighting,
                     security, and climate from one beautiful ecosystem.
-                    Seamlessly integrate with your favorite devices for a truly
-                    connected life.
                   </motion.h2>
                 </div>
 
@@ -97,13 +96,7 @@ export default function page() {
                   >
                     <span className="relative z-10 flex items-center">
                       Shop Now
-                      <motion.span
-                        className="ml-2 opacity-0 transition-opacity duration-300"
-                        initial={{ opacity: 0 }}
-                        whileHover={{ opacity: 1 }}
-                      >
-                        →
-                      </motion.span>
+                     <ChevronRight className="material-symbols-outlined ml-2" />
                     </span>
                     <motion.span
                       className="absolute inset-0 bg-primary/20 -translate-x-full w-full h-full"

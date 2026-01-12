@@ -1,6 +1,6 @@
 import { dbConnect } from "@/lib/dbConnect";
 import Cart from "@/models/Cart";
-import Order from "@/models/Order"; // Not used here, but for ref
+import Order from "@/models/Order";
 import Product from "@/models/Product";
 import getCurrentUser from "@/lib/UserAuth"; // Implement this: similar to verifyAdmin, returns { userId, error }
 
@@ -12,7 +12,9 @@ export default async function handler(req, res) {
   const auth = await getCurrentUser(req);
   if (auth.error) return res.status(401).json({ success: false, error: auth.error });
 
-  const userId = auth.userId;
+  const userId = auth.userId ; 
+  // const auth = { userId: "6960d247b3aec1b686a6d74f" };
+  // const userId = auth.userId;
 
   if (method === "GET") {
     try {

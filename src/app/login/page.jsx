@@ -32,15 +32,15 @@ export default function LoginPage() {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1500));
     console.log("Logged in:", formData);
-    alert("Logged in successfully!"); // Replace with redirect
+    alert("Logged in successfully!"); 
     setLoading(false);
   };
 
   return (
     <section className="bg-gray-50 dark:bg-gray-900 font-sans text-gray-900 dark:text-gray-100 antialiased min-h-screen">
-      <div className="flex min-h-screen w-full flex-row overflow-hidden">
+      <div className="flex w-full flex-row overflow-hidden">
         {/* Left Side: Login Form */}
-        <div className="flex w-full flex-col justify-between p-8 lg:w-1/2 lg:p-12 xl:p-16">
+        <div className="flex w-full flex-col justify-between  lg:w-1/2 ">
           {/* Header / Logo */}
           <header className="flex items-center gap-3">
             <div className="flex items-center justify-center rounded-lg bg-blue-500/10 p-2 text-blue-600">

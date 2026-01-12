@@ -4,7 +4,7 @@ import { HouseWifi, Globe, Facebook, Share2 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#111c22] border-t border-gray-200 dark:border-[#243b47] px-4 py-12 md:px-10 lg:px-40 flex justify-center">
+    <footer className="bg-white dark:bg-text-light border-t border-gray-200 dark:border-[#243b47] px-4 py-12 md:px-10 lg:px-40 flex justify-center">
       <div className="w-full max-w-7xl">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
           {/* Logo + Description */}

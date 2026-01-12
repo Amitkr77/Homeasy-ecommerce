@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Menu,
@@ -38,10 +38,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
+import useCartStore from "@/store/useCartStore";
 
 export default function Header() {
   const router = useRouter();
   const [searchValue, setSearchValue] = useState("");
+
+  const { totalItems } = useCartStore();
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -100,7 +103,10 @@ export default function Header() {
                 Products
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center" className="w-60">
+            <DropdownMenuContent
+              align="center"
+              className="w-60 bg-gray-100 border-none shadow-lg"
+            >
               <DropdownMenuItem
                 onClick={() => handleCategoryClick("Lighting")}
                 className="flex items-center gap-3 cursor-pointer"
@@ -152,7 +158,7 @@ export default function Header() {
               <DropdownMenuSeparator />
               <DropdownMenuItem
                 onClick={() => router.push("/products")}
-                className="flex items-center gap-3 justify-center cursor-pointer"
+                className="flex items-center gap-3 justify-center cursor-pointer "
               >
                 <Package className="size-4" />
                 <span className="font-medium">View All Products</span>
@@ -193,7 +199,7 @@ export default function Header() {
           >
             <ShoppingCart className="h-5 w-5" />
             <span className="absolute -top-1 -right-1 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-              3
+              {totalItems}
             </span>
           </Button>
 
@@ -212,7 +218,10 @@ export default function Header() {
               <span className="sr-only">Open menu</span>
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="w-80 sm:w-96 pt-0 flex flex-col">
+          <SheetContent
+            side="left"
+            className="w-80 sm:w-96 pt-0 flex flex-col bg-white"
+          >
             <SheetHeader className="border-b pb-4">
               <SheetTitle className="flex items-center gap-3 text-left">
                 <div className="size-8 text-primary flex items-center justify-center">
@@ -295,7 +304,7 @@ export default function Header() {
                                 }
                               }}
                             >
-                              <item.icon className="size-5 text-primary mr-3 flex-shrink-0" />
+                              <item.icon className="size-5 text-primary mr-3 shrink-0" />
                               <span className="text-base">{item.label}</span>
                             </Button>
                           ))}
