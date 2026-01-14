@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Cta from "@/components/Cta";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -150,13 +151,13 @@ export default function page() {
                 Curated devices for every corner of your life.
               </p>
             </div>
-            <a
+            <Link
               className="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all"
-              href="#"
+              href="/products"
             >
               View All Categories{" "}
               <ArrowRight className="material-symbols-outlined text-sm" />
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -283,8 +284,8 @@ export default function page() {
                   Why Choose Homeasy?
                 </span>
                 <h2 className="text-3xl md:text-5xl font-black leading-tight tracking-tight text-text-light dark:text-white mb-4">
-                  Innovation designed for <br />
-                  <span className="text-primary">comfort.</span>
+                  Innovation designed for 
+                  <span className="text-primary ml-2">comfort.</span>
                 </h2>
                 <p className="text-text-muted-light dark:text-text-muted-dark text-lg leading-relaxed">
                   We don't just sell devices; we sell a seamless lifestyle. Our
@@ -343,7 +344,7 @@ export default function page() {
                 </div>
               </div>
 
-              <button className="flex w-fit cursor-pointer items-center justify-center rounded-full h-12 px-8 bg-surface-dark dark:bg-white text-white dark:text-surface-dark text-base font-bold transition-transform hover:scale-105 mt-4">
+              <button className="flex w-fit cursor-pointer items-center justify-center rounded-full h-12 px-8 bg-primary dark:bg-white text-white dark:text-surface-dark text-base font-bold transition-transform hover:scale-105 mt-4">
                 Learn More
               </button>
             </div>
@@ -500,7 +501,7 @@ export default function page() {
           <section className="max-w-7xl mx-auto px-6 py-20 lg:py-32">
             <div className="mb-16 lg:mb-24">
               <h2 className="serif-heading text-5xl lg:text-6xl font-semibold mb-6 text-slate-900 dark:text-white">
-                Why choose us?
+                Why choose <span className="text-primary">us</span>?
               </h2>
               <p className="text-lg lg:text-xl text-slate-500 dark:text-slate-400 max-w-2xl font-light">
                 Everyday we work hard to make life of our clients better and
@@ -571,7 +572,7 @@ export default function page() {
                   <div className="absolute inset-0 bg-primary/5 mix-blend-multiply pointer-events-none"></div>
                 </div>
                 <div className="absolute -bottom-8 -left-8 bg-white dark:bg-accent-dark p-6 shadow-xl rounded-lg hidden xl:block max-w-50">
-                  <p className="text-xs font-semibold uppercase tracking-tighter text-primary mb-2">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">
                     Our commitment
                   </p>
                   <p className="text-sm font-medium text-slate-700 dark:text-slate-200">

@@ -424,7 +424,7 @@ export default function Products() {
                               <img
                                 src={mainImg}
                                 alt={product.name || "Product image"}
-                                fill={value.toString()}
+                                // fill={value.toString()}
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               />
@@ -470,13 +470,13 @@ export default function Products() {
                               {product.shortDescription}
                             </p>
 
-                            <div className="mt-auto flex gap-2">
-                              <Link
+                            <div>
+                              {/* <Link
                                 href={`/product/${product.urlHandle}`}
                                 className="flex-1 bg-gray-900 hover:bg-gray-800 text-white text-sm font-bold py-2 rounded-lg transition-colors text-center"
                               >
                                 View Details
-                              </Link>
+                              </Link> */}
                               {/* <button
                                 onClick={() => handleAddToCart(product._id)}
                                 disabled={

@@ -195,7 +195,7 @@ export default function page() {
               </div>
               {/* <!-- Step 3 --> */}
               <div className="flex flex-col items-center pb-2">
-                <div className="w-0.5 bg-border-light dark:bg-border-dark h-full min-h-[80px]"></div>
+                <div className="w-0.5 bg-border-light dark:bg-border-dark h-full min-h-80px"></div>
                 <div className="flex items-center justify-center w-12 h-12 rounded-full  text-primary border-2 border-primary z-10 bg-white dark:bg-card-dark">
                   <Trophy className="material-symbols-outlined" />
                 </div>
@@ -219,7 +219,7 @@ export default function page() {
         </section>
         {/* <!-- Meet the Team --> */}
         <section className="w-full px-6 py-20">
-          <div className="max-w-[960px] mx-auto">
+          <div className="max-w-960px mx-auto">
             <div className="mb-12 flex flex-col items-center text-center">
               <h2 className="text-3xl font-bold text-text-main-light dark:text-text-main-dark mb-4">
                 Meet the Visionaries
@@ -239,7 +239,7 @@ export default function page() {
                     data-alt="Portrait of Sarah Jenkins, a professional woman in business attire smiling"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtdcz11uprPEl0QVMG_6slX-e_JKoUD56G2ewoZtHBpxbLM3NNUNq4c9O5joTUFUblXcjerbEpBuuIMiin96MpprViCq8M7Rvp13yMaNX_NkzSNlha-atTL85zi2EVT2vMJUYkkA2iaLAUlFn0XK33MIWv9lJvWl5LHT5UrIyXWgXySDSvfECEtnJUWXwqLLwoavRg0NPn1jzB0mb9bn9zdivcNymwOOqh_mcVm0Umqdb5MkYfJMSNcUDmQRHzx7G9-k-eKABK8rZm"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                     <div className="flex gap-2 text-white">
                       <Linkedin className="material-symbols-outlined cursor-pointer hover:text-primary" />
 
@@ -258,7 +258,7 @@ export default function page() {
               </div>
               {/* <!-- Member 2 --> */}
               <div className="group flex flex-col gap-4">
-                <div className="overflow-hidden rounded-xl bg-gray-200 aspect-[3/4] relative">
+                <div className="overflow-hidden rounded-xl bg-gray-200 aspect-3/4 relative">
                   <img
                     alt="David Chen, CTO"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
