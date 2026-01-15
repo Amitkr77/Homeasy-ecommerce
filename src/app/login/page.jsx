@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Eye, EyeOff, Mail, Lock, Loader2, Home } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion"; // optional but recommended
+import { useAuthStore } from "@/store/useAuthStore";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -11,6 +12,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const [shake, setShake] = useState(false);
+  const { login } = useAuthStore();
 
   // Auto-focus email on mount
   useEffect(() => {
@@ -78,6 +80,7 @@ export default function LoginPage() {
       }
 
       // Success
+      login(data.user);
       localStorage.setItem("token", data.token ?? "");
       window.location.href = "/";
     } catch (err) {

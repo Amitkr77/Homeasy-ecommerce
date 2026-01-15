@@ -70,6 +70,7 @@ export default function CartPage() {
   }
 
   const hasItems = totalItems > 0;
+  // console.log(items);
 
   return (
     <div
@@ -81,7 +82,10 @@ export default function CartPage() {
           <div className="layout-content-container flex flex-col max-w-[1200px] flex-1">
             {/* Breadcrumb */}
             <nav className="flex flex-wrap gap-2 px-4 pb-6 pt-2 text-sm mb-6">
-              <Link href="/products" className="text-[#4e7f97] hover:underline font-medium">
+              <Link
+                href="/products"
+                className="text-[#4e7f97] hover:underline font-medium"
+              >
                 Shop
               </Link>
               <span className="text-[#d0dfe7]">/</span>
@@ -94,7 +98,9 @@ export default function CartPage() {
 
             {!hasItems ? (
               <div className="text-center py-12">
-                <p className="text-lg text-gray-500 mb-4">Your cart is empty.</p>
+                <p className="text-lg text-gray-500 mb-4">
+                  Your cart is empty.
+                </p>
                 <Link
                   href="/products"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#19a2e6] text-white rounded-lg font-bold hover:bg-[#1487c0] transition-colors"
@@ -108,7 +114,10 @@ export default function CartPage() {
                 {/* Cart Items */}
                 <div className="space-y-4 mb-8">
                   {items.map((item) => (
-                    <div key={item.product.id} className="flex items-center gap-4 bg-slate-50 px-4 py-4 rounded-xl border border-[#e7eff3] group">
+                    <div
+                      key={item.product.id}
+                      className="flex items-center gap-4 bg-slate-50 px-4 py-4 rounded-xl border border-[#e7eff3] group"
+                    >
                       <div className="relative shrink-0">
                         <img
                           src={item.product.mainImage || "/placeholder.jpg"}
@@ -119,7 +128,10 @@ export default function CartPage() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <Link href={`/product/${item.slug}`} className="block hover:text-[#19a2e6] transition-colors">
+                        <Link
+                          href={`/product/${item.slug}`}
+                          className="block hover:text-[#19a2e6] transition-colors"
+                        >
                           <p className="text-[#0e171b] text-base font-medium leading-normal line-clamp-1 mb-1">
                             {item.product.name}
                           </p>
@@ -134,14 +146,26 @@ export default function CartPage() {
                         </p>
                         <div className="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-[#d0dfe7]">
                           <button
-                            onClick={() => handleQuantityChange(item.product._id, item.quantity - 1)}
+                            onClick={() =>
+                              handleQuantityChange(
+                                item.product._id,
+                                item.quantity - 1
+                              )
+                            }
                             className="p-1 text-[#4e7f97] hover:text-[#19a2e6] transition-colors"
                           >
                             <Minus size={16} />
                           </button>
-                          <span className="w-6 text-center text-sm font-medium">{item.quantity}</span>
+                          <span className="w-6 text-center text-sm font-medium">
+                            {item.quantity}
+                          </span>
                           <button
-                            onClick={() => handleQuantityChange(item.product._id, item.quantity + 1)}
+                            onClick={() =>
+                              handleQuantityChange(
+                                item.product._id,
+                                item.quantity + 1
+                              )
+                            }
                             className="p-1 text-[#4e7f97] hover:text-[#19a2e6] transition-colors"
                           >
                             <Plus size={16} />
@@ -172,7 +196,13 @@ export default function CartPage() {
                     }}
                   />
                   <button
-                    onClick={() => handleDiscountApply(document.querySelector("input[placeholder='Discount code']")?.value)}
+                    onClick={() =>
+                      handleDiscountApply(
+                        document.querySelector(
+                          "input[placeholder='Discount code']"
+                        )?.value
+                      )
+                    }
                     className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-4 bg-[#e7eff3] text-[#0e171b] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#d0dfe7] transition-colors"
                   >
                     Apply
@@ -183,24 +213,42 @@ export default function CartPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 px-4">
                   <div className="lg:col-span-2" /> {/* Spacer for symmetry */}
                   <div className="lg:col-span-1 bg-white rounded-xl border border-[#e7eff3] p-6 shadow-sm">
-                    <h3 className="text-[#0e171b] text-lg font-bold leading-tight mb-6">Order Summary</h3>
+                    <h3 className="text-[#0e171b] text-lg font-bold leading-tight mb-6">
+                      Order Summary
+                    </h3>
                     <div className="space-y-3 mb-6">
                       <div className="flex justify-between">
-                        <span className="text-[#4e7f97] text-sm font-normal">Subtotal</span>
-                        <span className="text-[#0e171b] text-sm font-normal">₹{subtotal.toFixed(2)}</span>
+                        <span className="text-[#4e7f97] text-sm font-normal">
+                          Subtotal
+                        </span>
+                        <span className="text-[#0e171b] text-sm font-normal">
+                          ₹{subtotal.toFixed(2)}
+                        </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#4e7f97] text-sm font-normal">Shipping</span>
-                        <span className="text-[#0e171b] text-sm font-normal">Calculated at next step</span>
+                        <span className="text-[#4e7f97] text-sm font-normal">
+                          Shipping
+                        </span>
+                        <span className="text-[#0e171b] text-sm font-normal">
+                          Calculated at next step
+                        </span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-[#4e7f97] text-sm font-normal">Estimated taxes</span>
-                        <span className="text-[#0e171b] text-sm font-normal">Calculated at next step</span>
+                        <span className="text-[#4e7f97] text-sm font-normal">
+                          Estimated taxes
+                        </span>
+                        <span className="text-[#0e171b] text-sm font-normal">
+                          Calculated at next step
+                        </span>
                       </div>
                     </div>
                     <div className="flex justify-between items-center mb-6 pt-3 border-t border-[#e7eff3]">
-                      <span className="text-[#4e7f97] text-sm font-normal">Total</span>
-                      <span className="text-[#0e171b] text-lg font-bold">₹{subtotal.toFixed(2)}</span>
+                      <span className="text-[#4e7f97] text-sm font-normal">
+                        Total
+                      </span>
+                      <span className="text-[#0e171b] text-lg font-bold">
+                        ₹{subtotal.toFixed(2)}
+                      </span>
                     </div>
                     <Link
                       href="/checkout"

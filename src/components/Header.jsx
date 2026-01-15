@@ -18,6 +18,7 @@ import {
   Heart,
   ListOrdered,
   UserCircle,
+  ChevronDown,
 } from "lucide-react";
 import {
   Sheet,
@@ -48,9 +49,7 @@ export default function Header() {
 
   const { totalItems } = useCartStore();
   const { isAuthenticated, user, logout } = useAuthStore();
-
-  const pathname = usePathname();
-  const isProductsActive = pathname.startsWith("/products");
+  console.log(isAuthenticated, user);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -97,7 +96,7 @@ export default function Header() {
             />
             <Input
               placeholder="Search smart lights, cameras..."
-              className="pl-10 h-10"
+              className="pl-10 h-10 outline-none"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -110,11 +109,9 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className={`text-sm font-medium transition-colors ${
-                  isProductsActive ? "text-primary" : "hover:text-primary"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary `}
               >
-                Products
+                Products <ChevronDown className="size-4 ml-1" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -224,61 +221,87 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="relative h-10 w-10 rounded-full p-0 overflow-hidden border"
+                  className="relative bg-primary overflow-hidden border-primary hover:bg-muted transition"
                 >
                   {user?.avatarUrl ? (
                     <img
                       src={user.avatarUrl}
-                      alt={user.name || ""}
+                      alt={user.name || "User avatar"}
                       className="h-full w-full object-cover"
                     />
                   ) : (
-                    <UserCircle className="h-6 w-6 text-muted-foreground" />
+                    <UserCircle className="h-7 w-7 text-white" />
                   )}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-64">
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col gap-0.5">
-                    <p className="text-sm font-medium leading-none">
-                      {user?.name}
-                    </p>
-                    <p className="text-xs leading-none text-muted-foreground mt-1">
+
+              <DropdownMenuContent
+                align="end"
+                className="w-64 rounded-xl border bg-background p-2 shadow-lg"
+              >
+                {/* ── User info ── */}
+                <div className="flex items-center gap-3 px-3 py-2">
+                  <div className="h-10 w-10 rounded-full bg-muted flex items-center justify-center overflow-hidden">
+                    {user?.avatarUrl ? (
+                      <img
+                        src={user.avatarUrl}
+                        alt={user.name || "User avatar"}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <UserCircle className="h-6 w-6 text-muted-foreground" />
+                    )}
+                  </div>
+
+                  <div className="min-w-0">
+                    <p className="text-sm font-medium truncate">{user?.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">
                       {user?.email}
                     </p>
                   </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
+                </div>
+
+                <DropdownMenuSeparator className="my-2" />
+
+                {/* ── Navigation links ── */}
                 <DropdownMenuItem asChild>
-                  <Link href="/account" className="flex items-center gap-2">
-                    <UserCircle className="h-4 w-4" />
+                  <Link
+                    href="/account"
+                    className="flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-muted transition"
+                  >
+                    <UserCircle className="h-4 w-4 text-muted-foreground" />
                     My Account
                   </Link>
                 </DropdownMenuItem>
+
                 <DropdownMenuItem asChild>
                   <Link
                     href="/account/orders"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-muted transition"
                   >
-                    <ListOrdered className="h-4 w-4" />
+                    <ListOrdered className="h-4 w-4 text-muted-foreground" />
                     Orders
                   </Link>
                 </DropdownMenuItem>
+
                 <DropdownMenuItem asChild>
                   <Link
                     href="/account/wishlist"
-                    className="flex items-center gap-2"
+                    className="flex items-center gap-3 rounded-md px-3 py-2 text-sm hover:bg-muted transition"
                   >
-                    <Heart className="h-4 w-4" />
+                    <Heart className="h-4 w-4 text-muted-foreground" />
                     Wishlist
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuSeparator />
+
+                <DropdownMenuSeparator className="my-2" />
+
+                {/* ── Logout ── */}
                 <DropdownMenuItem
                   onClick={handleLogout}
-                  className="text-destructive focus:text-destructive"
+                  className="flex items-center gap-3 rounded-md px-3 py-2 text-sm text-destructive hover:bg-destructive/10 focus:text-destructive transition"
                 >
-                  <LogOut className="mr-2 h-4 w-4" />
+                  <LogOut className="h-4 w-4" />
                   Sign Out
                 </DropdownMenuItem>
               </DropdownMenuContent>
