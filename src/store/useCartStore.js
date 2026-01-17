@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { devtools } from 'zustand/middleware'; 
+import { devtools } from 'zustand/middleware';
 
 const useCartStore = create(devtools((set, get) => ({
   items: [],
@@ -11,7 +11,8 @@ const useCartStore = create(devtools((set, get) => ({
   fetchCart: async () => {
     set({ isLoading: true });
     try {
-      const res = await fetch('/api/cart', { method: 'GET', credentials: 'include' }); // Include cookies/JWT
+
+      const res = await fetch('/api/cart', { method: 'GET', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` } });
       if (res.ok) {
         const { data } = await res.json();
         set({
@@ -30,7 +31,7 @@ const useCartStore = create(devtools((set, get) => ({
   // Add item (optimistic update, then sync)
   addItem: async (productId, variantSku = null, quantity = 1) => {
     const { items, updateLocal } = get();
-    const existingIndex = items.findIndex(item => 
+    const existingIndex = items.findIndex(item =>
       item.product._id === productId && item.variantSku === variantSku
     );
     let newItems;
@@ -49,7 +50,7 @@ const useCartStore = create(devtools((set, get) => ({
     // Sync with API
     await fetch('/api/cart', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${localStorage.getItem('token')}` },
       body: JSON.stringify({ productId, variantSku, quantity }),
       credentials: 'include',
     });
@@ -58,7 +59,7 @@ const useCartStore = create(devtools((set, get) => ({
   // Update quantity
   updateQuantity: async (itemId, quantity) => {
     const { items, updateLocal } = get();
-    const newItems = items.map(item => 
+    const newItems = items.map(item =>
       item._id === itemId ? { ...item, quantity } : item
     );
     updateLocal(newItems);
@@ -68,6 +69,7 @@ const useCartStore = create(devtools((set, get) => ({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ itemId, quantity }),
       credentials: 'include',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
   },
 
@@ -82,6 +84,7 @@ const useCartStore = create(devtools((set, get) => ({
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ itemId }),
       credentials: 'include',
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
     });
   },
 

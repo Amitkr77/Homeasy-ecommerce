@@ -21,7 +21,7 @@ export const useAuthStore = create(
         }),
     }),
     {
-      name: 'auth-storage', // key in localStorage
+      name: 'auth-storage', 
       partialize: (state) => ({ user: state.user, isAuthenticated: state.isAuthenticated }), 
     }
   )
