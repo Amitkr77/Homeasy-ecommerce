@@ -70,7 +70,6 @@ export default function CartPage() {
   }
 
   const hasItems = totalItems > 0;
-  // console.log(items);
 
   return (
     <div
@@ -113,9 +112,9 @@ export default function CartPage() {
               <>
                 {/* Cart Items */}
                 <div className="space-y-4 mb-8">
-                  {items.map((item) => (
+                  {items.map((item, index) => (
                     <div
-                      key={item.product.id}
+                      key={index}
                       className="flex items-center gap-4 bg-slate-50 px-4 py-4 rounded-xl border border-[#e7eff3] group"
                     >
                       <div className="relative shrink-0">
@@ -142,14 +141,14 @@ export default function CartPage() {
                       </div>
                       <div className="flex items-center gap-4 text-right">
                         <p className="text-[#0e171b] text-base font-normal leading-normal">
-                          ₹{item.priceAtAdd.toFixed(0)}
+                          ₹{item.price}
                         </p>
                         <div className="flex items-center gap-2 bg-white px-2 py-1 rounded-lg border border-[#d0dfe7]">
                           <button
                             onClick={() =>
                               handleQuantityChange(
                                 item.product._id,
-                                item.quantity - 1
+                                item.quantity - 1,
                               )
                             }
                             className="p-1 text-[#4e7f97] hover:text-[#19a2e6] transition-colors"
@@ -163,7 +162,7 @@ export default function CartPage() {
                             onClick={() =>
                               handleQuantityChange(
                                 item.product._id,
-                                item.quantity + 1
+                                item.quantity + 1,
                               )
                             }
                             className="p-1 text-[#4e7f97] hover:text-[#19a2e6] transition-colors"
@@ -199,8 +198,8 @@ export default function CartPage() {
                     onClick={() =>
                       handleDiscountApply(
                         document.querySelector(
-                          "input[placeholder='Discount code']"
-                        )?.value
+                          "input[placeholder='Discount code']",
+                        )?.value,
                       )
                     }
                     className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-4 bg-[#e7eff3] text-[#0e171b] text-sm font-bold leading-normal tracking-[0.015em] hover:bg-[#d0dfe7] transition-colors"

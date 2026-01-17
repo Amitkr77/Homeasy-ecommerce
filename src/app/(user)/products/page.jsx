@@ -26,17 +26,17 @@ export default function Products() {
 
   const [localSearch, setLocalSearch] = useState(searchParams.get("q") || "");
   const [selectedCategories, setSelectedCategories] = useState(
-    searchParams.get("category") ? searchParams.get("category").split(",") : []
+    searchParams.get("category") ? searchParams.get("category").split(",") : [],
   );
   const [selectedPrices, setSelectedPrices] = useState(
-    searchParams.get("price") ? searchParams.get("price").split(",") : []
+    searchParams.get("price") ? searchParams.get("price").split(",") : [],
   );
   const [selectedBrand, setSelectedBrand] = useState(
-    searchParams.get("brand") || ""
+    searchParams.get("brand") || "",
   );
   const [sortBy, setSortBy] = useState(searchParams.get("sort") || "featured");
   const [currentPage, setCurrentPage] = useState(
-    parseInt(searchParams.get("page")) || 1
+    parseInt(searchParams.get("page")) || 1,
   );
 
   const [cart, setCart] = useState([]);
@@ -99,7 +99,7 @@ export default function Products() {
           .toLowerCase()
           .includes(localSearch.toLowerCase()) ||
         product.tags?.some((tag) =>
-          tag.toLowerCase().includes(localSearch.toLowerCase())
+          tag.toLowerCase().includes(localSearch.toLowerCase()),
         );
 
       const matchesCategory =
@@ -231,7 +231,7 @@ export default function Products() {
       const existing = prev.find((i) => i.id === productId);
       if (existing) {
         return prev.map((i) =>
-          i.id === productId ? { ...i, qty: i.qty + 1 } : i
+          i.id === productId ? { ...i, qty: i.qty + 1 } : i,
         );
       }
       return [...prev, { id: productId, qty: 1 }];
@@ -418,14 +418,14 @@ export default function Products() {
                         >
                           <div className="relative w-full aspect-4/3 overflow-hidden bg-gray-100">
                             <Link
-                              href={`/product/${product.urlHandle}`}
+                              href={`/products/${product.urlHandle}`}
                               className="block relative w-full h-full"
                             >
                               <img
                                 src={mainImg}
                                 alt={product.name || "Product image"}
                                 // fill={value.toString()}
-                                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                className="object-cover object-center group-hover:scale-105 transition-transform duration-500 h-full w-full"
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                               />
                             </Link>
@@ -435,7 +435,7 @@ export default function Products() {
                               </div>
                             )}
                             {product.compareAtPrice > product.basePrice && (
-                              <div className="absolute top-2 left-2 bg-yellow-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                              <div className="absolute top-2 left-2 bg-primary text-white px-2 py-1 rounded-full text-xs font-bold">
                                 Sale
                               </div>
                             )}
@@ -448,7 +448,7 @@ export default function Products() {
                             <div className="flex justify-between items-start mb-2">
                               <h3 className="text-gray-900 text-lg font-bold line-clamp-1 group-hover:text-blue-600 transition-colors">
                                 <Link
-                                  href={`/product/${product.urlHandle}`}
+                                  href={`/products/${product.urlHandle}`}
                                   className="hover:underline"
                                 >
                                   {product.name}
@@ -544,7 +544,7 @@ export default function Products() {
                               {pageNum}
                             </button>
                           );
-                        }
+                        },
                       )}
 
                       <button
