@@ -49,7 +49,6 @@ export default function Header() {
 
   const { totalItems } = useCartStore();
   const { isAuthenticated, user, logout } = useAuthStore();
-  console.log(isAuthenticated, user);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -237,7 +236,7 @@ export default function Header() {
 
               <DropdownMenuContent
                 align="end"
-                className="w-64 rounded-xl border bg-background p-2 shadow-lg"
+                className="w-64 rounded-xl  border-none p-2 shadow-lg bg-white"
               >
                 {/* ── User info ── */}
                 <div className="flex items-center gap-3 px-3 py-2">
