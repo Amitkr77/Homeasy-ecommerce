@@ -35,7 +35,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -95,7 +95,7 @@ export default function Header() {
             />
             <Input
               placeholder="Search smart lights, cameras..."
-              className="pl-10 h-10 outline-none"
+              className="pl-10 h-10 focus-visible:ring-0"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -104,13 +104,27 @@ export default function Header() {
 
         {/* Nav links - desktop */}
         <nav className="hidden lg:flex items-center gap-8">
+          <Link
+            href="/our-story"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            Our story
+          </Link>
+
+          <Link
+            href="/aboutus"
+            className="text-sm font-medium hover:text-primary transition-colors"
+          >
+            About Us
+          </Link>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
                 className={`text-sm font-medium transition-colors hover:text-primary `}
               >
-                Products <ChevronDown className="size-4 ml-1" />
+                Products <ChevronDown className="size-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -175,23 +189,10 @@ export default function Header() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-
-          <Link
-            href="/support"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            Support
-          </Link>
-          <Link
-            href="/aboutus"
-            className="text-sm font-medium hover:text-primary transition-colors"
-          >
-            About Us
-          </Link>
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <Button
             variant="ghost"
             size="icon"
@@ -203,7 +204,7 @@ export default function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="relative"
+            className="relative bg-gray-100 px-5 "
             onClick={handleCartClick}
           >
             <ShoppingCart className="h-5 w-5" />
@@ -220,7 +221,7 @@ export default function Header() {
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  className="relative bg-primary overflow-hidden border-primary hover:bg-muted transition"
+                  className="relative bg-primary overflow-hidden border-primary hover:bg-muted transition "
                 >
                   {user?.avatarUrl ? (
                     <img
@@ -310,11 +311,34 @@ export default function Header() {
               asChild
               variant="default"
               size="sm"
-              className="hidden sm:flex rounded-full px-5"
+              className="
+    hidden sm:flex
+    rounded-full px-5
+    transition-all duration-200
+    hover:scale-[1.03]
+    active:scale-[0.98]
+    focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2
+    group
+  "
             >
-              <Link href="/login" className="flex items-center gap-2">
-                <LogIn className="h-4 w-4" />
-                Sign In
+              <Link
+                href="/login"
+                prefetch
+                aria-label="Login to your account"
+                className="
+      flex items-center gap-2
+      text-white
+    "
+              >
+                <LogIn
+                  className="
+        h-4 w-4
+        transition-transform duration-200
+        group-hover:translate-x-0.5
+      "
+                  aria-hidden="true"
+                />
+                <span className="font-medium">Login</span>
               </Link>
             </Button>
           )}
@@ -343,7 +367,7 @@ export default function Header() {
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                   <Input
                     placeholder="Search products..."
-                    className="pl-11 h-11"
+                    className="pl-11 h-11 "
                     value={searchValue}
                     onChange={(e) => setSearchValue(e.target.value)}
                   />

@@ -46,80 +46,102 @@ export default function page() {
                   <div className="absolute bottom-20 left-1/4 w-1 h-1 bg-blue-500 rounded-full blur-lg animate-bounce delay-300"></div>
                 </div>
 
-                <div className="relative z-10 flex flex-col gap-6 max-w-3xl mx-auto">
-                  {/* Animated Badge with Entrance Delay */}
+                <div className="relative z-10 flex flex-col gap-8 max-w-2xl mx-auto px-4">
+                  {/* Minimal Badge with Fade-In */}
                   <motion.span
-                    className="inline-block py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm   text-white text-xs font-bold uppercase tracking-wider w-fit mx-auto "
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                    className="inline-flex items-center py-1 px-4 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-white text-xs font-medium uppercase tracking-widest w-fit mx-auto "
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                   >
+                    <span className="flex h-2 w-2 rounded-full bg-primary mr-2"></span>{" "}
                     Smart Living 2.0
                   </motion.span>
 
-                  {/* Enhanced H1 with Letter Spacing Animation */}
+                  {/* Clean H1 with Subtle Gradient and Staggered Letters */}
                   <motion.h1
-                    className="text-white text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight drop-shadow-lg"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                    className="text-white text-4xl md:text-5xl lg:text-8xl font-light tracking-tight"
+                    initial="hidden"
+                    animate="visible"
+                    variants={{
+                      hidden: { opacity: 0, y: 40 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.7,
+                          ease: "easeOut",
+                          staggerChildren: 0.05,
+                        },
+                      },
+                    }}
                   >
-                    Your Home,{" "}
-                    <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-cyan-400 to-purple-300 animate-linear-flow">
+                    Your Home,
+                    <br />
+                    <motion.span
+                      className="font-normal bg-linear-to-r from-cyan-300 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+                      variants={{
+                        hidden: { opacity: 0, skewX: -10 },
+                        visible: { opacity: 1, skewX: 0 },
+                      }}
+                    >
                       Reimagined.
-                    </span>
+                    </motion.span>
                   </motion.h1>
 
-                  {/* Improved H2 with Better Typography and Subtle Glow */}
-                  <motion.h2
-                    className="text-gray-100 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto drop-shadow-md"
-                    initial={{ opacity: 0, y: 20 }}
+                  {/* Refined H2 with Increased Line Height for Breathing Room */}
+                  <motion.p
+                    className="text-gray-200 text-base md:text-lg font-normal leading-7 max-w-lg mx-auto"
+                    initial={{
+                      opacity: 0,
+                      y: 20,
+                    }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                   >
                     Experience intelligent living made simple. Control lighting,
                     security, and climate from one beautiful ecosystem.
-                  </motion.h2>
+                  </motion.p>
                 </div>
 
                 {/* Enhanced CTA Buttons with Improved Hover and Focus States */}
                 <motion.div
-                  className="relative z-10 flex flex-col sm:flex-row gap-4 mt-6"
+                  className="relative z-10 flex flex-col sm:flex-row gap-3 mt-8"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                 >
-                  <motion.button
-                    className="group flex cursor-pointer items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-primary/90 focus:bg-primary/95 text-white text-base font-bold shadow-xl shadow-primary/30 transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-primary/50 focus:ring-offset-2 focus:ring-offset-transparent relative overflow-hidden"
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    whileFocus={{ scale: 1.02 }}
-                  >
-                    <span className="relative z-10 flex items-center">
-                      Shop Now
-                     <ChevronRight className="material-symbols-outlined ml-2" />
-                    </span>
-                    <motion.span
-                      className="absolute inset-0 bg-primary/20 -translate-x-full w-full h-full"
-                      initial={{ translateX: "-100%" }}
-                      whileHover={{ translateX: "100%" }}
-                      transition={{ duration: 0.7, ease: "easeOut" }}
-                    />
-                  </motion.button>
+                  <Link href="/products">
+                    <motion.button
+                      className="group relative flex items-center justify-center rounded-full h-11 px-6 bg-primary text-white text-sm font-medium shadow-sm hover:shadow-md transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-white/20"
+                      whileHover={{ scale: 1.02, y: -1 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="relative z-10 flex items-center">
+                        Shop Now
+                        <ChevronRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
+                      </span>
+                      <motion.div
+                        className="absolute inset-0 rounded-full bg-gradient-to-r from-cyan-400 to-purple-400 opacity-0 group-hover:opacity-100"
+                        initial={{ scaleX: 0 }}
+                        whileHover={{ scaleX: 1 }}
+                        transition={{ duration: 0.4, ease: "easeOut" }}
+                      />
+                    </motion.button>
+                  </Link>
 
                   <motion.button
-                    className="group flex cursor-pointer items-center justify-center rounded-full h-12 px-8 bg-white/10 backdrop-blur-md hover:bg-white/20 focus:bg-white/25 border border-white/30 text-white text-base font-bold transition-all duration-300 ease-out focus:outline-none focus:ring-4 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-transparent"
-                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="group flex items-center justify-center rounded-full h-11 px-6 bg-white/5 backdrop-blur-sm border border-white/10 text-white text-sm font-medium hover:bg-white/10 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-white/20"
+                    whileHover={{ scale: 1.02, y: -1 }}
                     whileTap={{ scale: 0.98 }}
-                    whileFocus={{ scale: 1.02 }}
                   >
                     <motion.span
-                      className="flex items-center mr-2 text-xl transition-transform duration-300"
+                      className="flex items-center mr-2 text-lg transition-transform duration-300"
                       initial={{ rotate: 0 }}
-                      whileHover={{ rotate: 12 }}
+                      whileHover={{ rotate: 5 }}
                       aria-hidden="true"
                     >
-                      <CirclePlay className="material-symbols-outlined" />
+                      <CirclePlay className="h-4 w-4" />
                     </motion.span>
                     Watch Demo
                   </motion.button>
@@ -284,7 +306,7 @@ export default function page() {
                   Why Choose Homeasy?
                 </span>
                 <h2 className="text-3xl md:text-5xl font-black leading-tight tracking-tight text-text-light dark:text-white mb-4">
-                  Innovation designed for 
+                  Innovation designed for
                   <span className="text-primary ml-2">comfort.</span>
                 </h2>
                 <p className="text-text-muted-light dark:text-text-muted-dark text-lg leading-relaxed">
@@ -548,7 +570,7 @@ export default function page() {
                     </h4>
                   </div>
                 </div>
-                 <div className="flex gap-6 items-start group">
+                <div className="flex gap-6 items-start group">
                   <div className="quote-mark text-primary -mt-4">“</div>
                   <div>
                     <p className="text-slate-600 dark:text-slate-300 leading-relaxed mb-4 text-lg">
